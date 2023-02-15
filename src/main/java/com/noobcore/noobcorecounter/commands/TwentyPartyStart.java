@@ -26,12 +26,12 @@ public class TwentyPartyStart implements CommandExecutor {
 
         // Check if the task is already running and stop further logic if it is
         if (isTaskRunning()) {
-            sender.sendMessage("You cannot activate this party when an existing party is running!");
+            sender.sendRichMessage("<white>\uE46E <red>You cannot activate this party when an existing party is running!");
             return true;
         }
 
         if (FiftyPartyStart.isTaskRunning()) {
-            sender.sendMessage("You cannot activate this party when an existing party is running!");
+            sender.sendRichMessage("<white>\uE46E <red>You cannot activate this party when an existing party is running!");
             return true;
         }
 

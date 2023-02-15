@@ -25,12 +25,12 @@ public class FiftyPartyStart implements CommandExecutor {
 
         // Check if the task is already running and stop further logic if it is
         if (isTaskRunning()) {
-            sender.sendMessage("You cannot activate this party when an existing party is running!");
+            sender.sendRichMessage("<white>\uE46E <red>You cannot activate this party when an existing party is running!");
             return true;
         }
 
         if (TwentyPartyStart.isTaskRunning()) {
-            sender.sendMessage("You cannot activate this party when an existing party is running!");
+            sender.sendRichMessage("<white>\uE46E <red>You cannot activate this party when an existing party is running!");
             return true;
 
         }
@@ -48,7 +48,7 @@ public class FiftyPartyStart implements CommandExecutor {
             armorStand.setVisible(false);
             armorStand.customName(Component.text("5:00"));
 
-            this.currentRunnable = new FiftyPartyTimer(armorStand, 300).runTaskTimer(Noobcorecounter.instance, 0, 20);
+            currentRunnable = new FiftyPartyTimer(armorStand, 300).runTaskTimer(Noobcorecounter.instance, 0, 20);
 
             return true;
         }
