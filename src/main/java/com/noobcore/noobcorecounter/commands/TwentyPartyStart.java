@@ -19,6 +19,8 @@ public class TwentyPartyStart implements CommandExecutor {
     private static BukkitTask currentRunnable = null;
     private static ArmorStand armorStand = null;
 
+
+
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args) {
 
@@ -32,6 +34,7 @@ public class TwentyPartyStart implements CommandExecutor {
             sender.sendMessage("You cannot activate this party when an existing party is running!");
             return true;
         }
+
 
 
             //Desired Location -177.500, 53, 232.500 World name 'newlobby'
@@ -54,6 +57,17 @@ public class TwentyPartyStart implements CommandExecutor {
 
     public static boolean isTaskRunning() {
         return currentRunnable != null && !currentRunnable.isCancelled();
+    }
+
+    public static void cancelTimer() {
+        if (!isTaskRunning()) return;
+        currentRunnable.cancel();
+        currentRunnable = null;
+
+        if (armorStand == null) return;
+        armorStand.remove();
+        armorStand = null;
+
     }
 }
 
