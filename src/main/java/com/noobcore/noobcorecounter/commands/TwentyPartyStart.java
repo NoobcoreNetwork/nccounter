@@ -13,15 +13,19 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.scheduler.BukkitTask;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.jetbrains.annotations.NotNull;
-
 
 public class TwentyPartyStart implements CommandExecutor {
 
-    private @NotNull BukkitTask currentRunnable = null;
+    private BukkitTask currentRunnable = null;
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args) {
+
+        // Check if the task is already running and stop further logic if it is
+        if (currentRunnable != null && !currentRunnable.isCancelled()) {
+            sender.sendMessage("Timer already in progress!");
+            return true;
+        }
 
         //Desired Location -177.500, 53, 232.500 World name 'newlobby'
         World world = Bukkit.getWorld("newlobby");
