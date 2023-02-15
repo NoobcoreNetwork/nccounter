@@ -1,0 +1,20 @@
+name: Noobcorecounter
+version: '${project.version}'
+main: com.noobcore.noobcorecounter.Noobcorecounter
+api-version: 1.19
+commands:
+  party20:
+    description: Starts the pre party countdown
+    usage: /party20
+    permission: party
+    permission-message: You do not have permission
+  party50:
+    description: Starts the pre party countdown
+    usage: /party50
+    permission: party
+    permission-message: You do not have permission
+  partystop:
+    description: stops any running partys
+    usage: /partystop
+    permission: party
+    permission-message: You do not have permission
