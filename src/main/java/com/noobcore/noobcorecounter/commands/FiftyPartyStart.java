@@ -23,6 +23,8 @@ public class FiftyPartyStart implements CommandExecutor {
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args) {
 
+        // TODO implement a check if task is already running
+
         //Desired Location -177.500, 53, 232.500 World name 'newlobby'
         World world = Bukkit.getWorld("newlobby");
         ArmorStand armorstand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
