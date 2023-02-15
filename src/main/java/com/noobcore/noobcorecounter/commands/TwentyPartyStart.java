@@ -17,13 +17,14 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 public class TwentyPartyStart implements CommandExecutor {
 
     public static BukkitTask currentRunnable = null;
+    private static ArmorStand armorStand = null;
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args) {
 
         // Check if the task is already running and stop further logic if it is
         if (currentRunnable != null && !currentRunnable.isCancelled()) {
-            sender.sendMessage("Timer already in progress!");
+            sender.sendMessage("You cannot activate this party when an existing party is running!");
             return true;
         }
 
@@ -32,23 +33,25 @@ public class TwentyPartyStart implements CommandExecutor {
             return true;
         }
 
+
         //Desired Location -177.500, 53, 232.500 World name 'newlobby'
         World world = Bukkit.getWorld("newlobby");
-        ArmorStand armorstand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
+        armorStand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #585953624530616320 :information_source:`A gem party of 20 is starting in 5 minutes! Hop online and type /party to join!`");
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "infiniteannouncements send * dropparty");
         //set stand attributes
-        armorstand.setGravity(false);
-        armorstand.setInvulnerable(true);
-        armorstand.setCustomNameVisible(true);
-        armorstand.setVisible(false);
-        armorstand.customName(Component.text("5:00"));
+        armorStand.setGravity(false);
+        armorStand.setInvulnerable(true);
+        armorStand.setCustomNameVisible(true);
+        armorStand.setVisible(false);
+        armorStand.customName(Component.text("5:00"));
 
-        currentRunnable = new TwentyPartyTimer(armorstand, 300).runTaskTimer(Noobcorecounter.instance, 0, 20);
-
-
-
+        currentRunnable = new TwentyPartyTimer(armorStand, 300).runTaskTimer(Noobcorecounter.instance, 0, 20);
         return true;
     }
 
+    public static boolean isTaskRunning() {
+        return currentRunnable != null && !currentRunnable.isCancelled();
+    }
 }
+
