@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
+
 public class StopParty implements CommandExecutor {
 
     /**
@@ -13,7 +14,21 @@ public class StopParty implements CommandExecutor {
      */
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (TwentyPartyStart.currentRunnable != null && !TwentyPartyStart.currentRunnable.isCancelled()) {
+            sender.sendMessage("Drop Party Manually Stopped");
+            TwentyPartyStart.currentRunnable.cancel();
 
-        return false;
+        }
+        if (FiftyPartyStart.currentRunnable != null && !FiftyPartyStart.currentRunnable.isCancelled()) {
+            sender.sendMessage("Drop Party Manually Stopped");
+            FiftyPartyStart.currentRunnable.cancel();
+
+        }
+        sender.sendMessage("Something bad happened!");
+        return true;
+
+
+
+
     }
 }

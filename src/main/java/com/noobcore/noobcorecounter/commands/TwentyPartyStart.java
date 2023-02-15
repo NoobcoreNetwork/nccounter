@@ -16,7 +16,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class TwentyPartyStart implements CommandExecutor {
 
-    private BukkitTask currentRunnable = null;
+    public static BukkitTask currentRunnable = null;
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args) {
@@ -31,6 +31,7 @@ public class TwentyPartyStart implements CommandExecutor {
         World world = Bukkit.getWorld("newlobby");
         ArmorStand armorstand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #585953624530616320 :information_source:`A gem party of 20 is starting in 5 minutes! Hop online and type /party to join!`");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "infiniteannouncements send * dropparty");
         //set stand attributes
         armorstand.setGravity(false);
         armorstand.setInvulnerable(true);
@@ -38,7 +39,9 @@ public class TwentyPartyStart implements CommandExecutor {
         armorstand.setVisible(false);
         armorstand.customName(Component.text("5:00"));
 
-        this.currentRunnable = new TwentyPartyTimer(armorstand, 300).runTaskTimer(Noobcorecounter.instance, 0, 20);
+        currentRunnable = new TwentyPartyTimer(armorstand, 300).runTaskTimer(Noobcorecounter.instance, 0, 20);
+
+
 
         return true;
     }

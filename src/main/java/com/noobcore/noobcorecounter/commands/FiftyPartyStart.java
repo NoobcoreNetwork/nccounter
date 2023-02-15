@@ -18,17 +18,22 @@ import org.jetbrains.annotations.NotNull;
 
 public class FiftyPartyStart implements CommandExecutor {
 
-    private @NotNull BukkitTask currentRunnable = null;
+    public static  BukkitTask currentRunnable = null;
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args) {
 
-        // TODO implement a check if task is already running
+        // Check if the task is already running and stop further logic if it is
+        if (currentRunnable != null && !currentRunnable.isCancelled()) {
+            sender.sendMessage("Timer already in progress!");
+            return true;
+        }
 
         //Desired Location -177.500, 53, 232.500 World name 'newlobby'
         World world = Bukkit.getWorld("newlobby");
         ArmorStand armorstand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #585953624530616320 :information_source:`A gem party of 50 is starting in 5 minutes! Hop online and type /party to join!`");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "infiniteannouncements send * dropparty");
         //set stand attributes
         armorstand.setGravity(false);
         armorstand.setInvulnerable(true);
