@@ -1,6 +1,6 @@
-package Commands;
+package com.noobcore.noobcorecounter.commands;
 
-import Tasks.TwentyPartyTimer;
+import com.noobcore.noobcorecounter.tasks.TwentyPartyTimer;
 import com.noobcore.noobcorecounter.Noobcorecounter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -11,7 +11,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;

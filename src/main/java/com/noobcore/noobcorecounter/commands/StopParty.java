@@ -1,6 +1,5 @@
-package Commands;
+package com.noobcore.noobcorecounter.commands;
 
-import Tasks.TwentyPartyTimer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

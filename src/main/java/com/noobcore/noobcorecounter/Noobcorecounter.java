@@ -1,8 +1,8 @@
 package com.noobcore.noobcorecounter;
 
-import Commands.StopParty;
-import Commands.TwentyPartyStart;
-import Commands.FiftyPartyStart;
+import com.noobcore.noobcorecounter.commands.StopParty;
+import com.noobcore.noobcorecounter.commands.TwentyPartyStart;
+import com.noobcore.noobcorecounter.commands.FiftyPartyStart;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 

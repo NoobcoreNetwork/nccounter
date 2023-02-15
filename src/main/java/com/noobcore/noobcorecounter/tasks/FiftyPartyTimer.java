@@ -1,4 +1,4 @@
-package Tasks;
+package com.noobcore.noobcorecounter.tasks;
 
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;

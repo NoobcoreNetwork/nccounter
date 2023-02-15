@@ -1,6 +1,6 @@
-package Commands;
+package com.noobcore.noobcorecounter.commands;
 
-import Tasks.FiftyPartyTimer;
+import com.noobcore.noobcorecounter.tasks.FiftyPartyTimer;
 import com.noobcore.noobcorecounter.Noobcorecounter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -26,7 +26,7 @@ public class FiftyPartyStart implements CommandExecutor {
         //Desired Location -177.500, 53, 232.500 World name 'newlobby'
         World world = Bukkit.getWorld("newlobby");
         ArmorStand armorstand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #585953624530616320 :information_source:`A gem party of 20 is starting in 5 minutes! Hop online and type /party to join!`");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #585953624530616320 :information_source:`A gem party of 50 is starting in 5 minutes! Hop online and type /party to join!`");
         //set stand attributes
         armorstand.setGravity(false);
         armorstand.setInvulnerable(true);
