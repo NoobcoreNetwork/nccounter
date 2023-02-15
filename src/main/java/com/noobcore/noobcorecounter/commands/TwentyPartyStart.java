@@ -27,6 +27,11 @@ public class TwentyPartyStart implements CommandExecutor {
             return true;
         }
 
+        if (FiftyPartyStart.currentRunnable != null && !FiftyPartyStart.currentRunnable.isCancelled()) {
+            sender.sendMessage("You cannot activate this party when an existing party is running!");
+            return true;
+        }
+
         //Desired Location -177.500, 53, 232.500 World name 'newlobby'
         World world = Bukkit.getWorld("newlobby");
         ArmorStand armorstand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);

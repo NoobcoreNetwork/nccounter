@@ -5,6 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
+
 
 public class StopParty implements CommandExecutor {
 
@@ -24,8 +26,10 @@ public class StopParty implements CommandExecutor {
             FiftyPartyStart.currentRunnable.cancel();
 
         }
-        sender.sendMessage("Something bad happened!");
+
+
         return true;
+
 
 
 
