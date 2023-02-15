@@ -53,8 +53,18 @@ public class FiftyPartyStart implements CommandExecutor {
             return true;
         }
 
-        public static boolean isTaskRunning() {
-            return currentRunnable != null && !currentRunnable.isCancelled();
-        }
+    public static boolean isTaskRunning() {
+        return currentRunnable != null && !currentRunnable.isCancelled();
+    }
+
+    public static void cancelTimer() {
+        if (!isTaskRunning()) return;
+        currentRunnable.cancel();
+        currentRunnable = null;
+
+        if (armorStand == null) return;
+        armorStand.remove();
+        armorStand = null;
+
     }
 }

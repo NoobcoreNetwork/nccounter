@@ -10,20 +10,16 @@ import javax.swing.*;
 
 public class StopParty implements CommandExecutor {
 
-    /**
-     * TODO convert BukkitTasks from 20 and 50 into static, reference them here.
-     * TODO Check if they're running. If yes, cancel them
-     */
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (TwentyPartyStart.currentRunnable != null && !TwentyPartyStart.currentRunnable.isCancelled()) {
+        if (TwentyPartyStart.isTaskRunning()) {
             sender.sendMessage("Drop Party Manually Stopped");
-            TwentyPartyStart.currentRunnable.cancel();
+            TwentyPartyStart.cancelTimer();
 
         }
-        if (FiftyPartyStart.currentRunnable != null && !FiftyPartyStart.currentRunnable.isCancelled()) {
+        if (FiftyPartyStart.isTaskRunning()) {
             sender.sendMessage("Drop Party Manually Stopped");
-            FiftyPartyStart.currentRunnable.cancel();
+            FiftyPartyStart.cancelTimer();
 
         }
 
