@@ -25,7 +25,16 @@ public static Noobcorecounter instance;
     public void onDisable() {
         // Plugin shutdown logic
         Bukkit.getLogger().info("Noobcore Counter Shutdown Successfully");
+        if (TwentyPartyStart.isTaskRunning()) {
+            TwentyPartyStart.cancelTimer();
+            Bukkit.getLogger().info("Stopped the active drop party before shutdown");
 
+        }
+        if (FiftyPartyStart.isTaskRunning()) {
+            FiftyPartyStart.cancelTimer();
+            Bukkit.getLogger().info("Stopped the active drop party before shutdown");
+
+        }
     }
 }
 

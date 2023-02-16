@@ -26,11 +26,6 @@ public class TwentyPartyTimer extends BukkitRunnable {
         }
 
 
-
-
-
-
-
         armorStand.customName(MiniMessage.miniMessage().deserialize("<white>\uE433 Time Until DropParty: <green>"+getTimeFromSeconds(seconds)+"<white> \uE433"));
         seconds--;
 
