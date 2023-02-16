@@ -40,7 +40,7 @@ public class TwentyPartyStart implements CommandExecutor {
             //Desired Location -177.500, 53, 232.500 World name 'newlobby'
             World world = Bukkit.getWorld("newlobby");
             armorStand = (ArmorStand) world.spawnEntity(new Location((world), -177.500, 53, 232.500), EntityType.ARMOR_STAND);
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #1041700855272976424 :ncgem: `A gem party of 20 is starting in 5 minutes! Hop online and type /party to join!` :ncgem:");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "discord broadcast #1041700855272976424 Hey @Noobcore Updates!\\n\\nA Drop Party of 20 :ncgem: is starting in **5 minutes** Hop online and type `/party` to join!");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "infiniteannouncements send * dropparty");
             sender.sendRichMessage("<white>\uE3A9 <green>You started a drop party of 20 gems");
             //set stand attributes
